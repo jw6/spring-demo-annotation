@@ -9,13 +9,13 @@ public class TennisCoach implements Coach {
 	private FortuneService fortuneService;
 	
 	public TennisCoach() {
-		
+		System.out.println(">> TennisCoach: inside default constructor");
 	}
 
-	@Autowired
-	public TennisCoach(FortuneService fortuneService) {
-		this.fortuneService = fortuneService;
-	}
+//	@Autowired
+//	public TennisCoach(FortuneService fortuneService) {
+//		this.fortuneService = fortuneService;
+//	}
 	
 	@Override
 	public String getDailyWorkout() {
@@ -25,5 +25,11 @@ public class TennisCoach implements Coach {
 	@Override
 	public String getDailyFortune() {
 		return fortuneService.getFortune();
+	}
+	
+	@Autowired
+	public void setFortuneService(FortuneService theFortuneService) {
+		System.out.println(">> TennisCoach: inside setter method");
+		fortuneService = theFortuneService;
 	}
 }
